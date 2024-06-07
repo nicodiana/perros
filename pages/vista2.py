@@ -40,7 +40,7 @@ def classify_dog(img):
 
 #chat
 def generate_recipe(label):
-    #borre api key
+    client = OpenAI(api_key="sk-proj-hNukFdyMLeRSzXkrTXTFT3BlbkFJo9BXP9KqmhQRELXXoFrY") #borre api key
 
     response = client.completions.create(
         model="gpt-3.5-turbo-instruct",
