@@ -129,7 +129,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Button box
 st.markdown('<div class="btn-box">', unsafe_allow_html=True)
 if input_img is not None:
-    if st.button("Determinar la raza y obtener recomendaciones personalizadas"):
+    if st.button("Determinar la raza"):
         # Columns for displaying results
         st.markdown('<div class="columns">', unsafe_allow_html=True)
 
