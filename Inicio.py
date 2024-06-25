@@ -52,10 +52,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-with st.container():
-    st.markdown('<div class="center-logo">', unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
+
+with col2:
     st.image('loguito.png', caption=None, width=200, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    st.markdown('</div>', unsafe_allow_html=True)
+    
 # App title and logo
 
 st.markdown('<h1 class="title">Bienvenido a tu Dog Breed Identifier</h1>', unsafe_allow_html=True)

@@ -4,6 +4,11 @@ import numpy as np
 import streamlit as st
 import os
 
+col1, col2, col3 = st.columns(3)
+
+with col2:
+    st.image('loguito.png', caption=None, width=200, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+
 # Obtener la ruta absoluta al directorio que contiene el script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -263,9 +268,6 @@ def generate_recipe(label):
     else:
         return "No se encontraron recomendaciones para esta raza."
 
-# Streamlit configuration
-st.set_page_config(page_title="Comienza tu aventura junto a tu mascota", page_icon="🐾", layout="centered", initial_sidebar_state="auto")
-
 # Apply custom CSS for background color and styling
 st.markdown(
     """
@@ -353,7 +355,6 @@ st.markdown(
 )
 
 # App title and logo
-st.markdown('<div class="logo-container"><img src="loguito.png" width="200"></div>', unsafe_allow_html=True)
 st.markdown('<h1 class="title">Comienza tu aventura junto a tu mascota</h1>', unsafe_allow_html=True)
 
 # Upload box
