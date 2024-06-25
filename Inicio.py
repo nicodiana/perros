@@ -1,11 +1,6 @@
 import streamlit as st
 
 
-<<<<<<< HEAD
-
-st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-=======
 # Streamlit configuration
 
 
@@ -15,17 +10,12 @@ import streamlit as st
 
 st.set_page_config(
     page_title="DOGGYS",
->>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
     page_icon=":dog:",
     layout="wide",
     initial_sidebar_state="expanded",
     
 )
-<<<<<<< HEAD
-import streamlit as st
-=======
 
->>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
 
 # Contenido de la sidebar
 with st.sidebar:
@@ -49,11 +39,6 @@ with st.sidebar:
     st.markdown("---")
 
     st.write("Gracias por utilizar DOGGYS!")
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
 
 # Apply custom CSS for background color and styling
 st.markdown(
@@ -121,5 +106,3 @@ st.markdown('<div class="info-box"><div class="info-box-title">Beneficios de usa
 
 # Button to navigate to the second view
 st.markdown('<div class="btn-box"><a href="/Identificador" target="_self"><button style="background-color:#804000;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:20px;">Comenzá Aquí</button></a></div>', unsafe_allow_html=True)
-import streamlit as st
-
