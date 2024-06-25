@@ -1,15 +1,31 @@
 import streamlit as st
 
 
+<<<<<<< HEAD
 
 st.set_page_config(
     page_title="Ex-stream-ly Cool App",
+=======
+# Streamlit configuration
+
+
+import streamlit as st
+
+
+
+st.set_page_config(
+    page_title="DOGGYS",
+>>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
     page_icon=":dog:",
     layout="wide",
     initial_sidebar_state="expanded",
     
 )
+<<<<<<< HEAD
 import streamlit as st
+=======
+
+>>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
 
 # Contenido de la sidebar
 with st.sidebar:
@@ -33,8 +49,11 @@ with st.sidebar:
     st.markdown("---")
 
     st.write("Gracias por utilizar DOGGYS!")
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
 
 # Apply custom CSS for background color and styling
 st.markdown(
@@ -78,17 +97,18 @@ st.markdown(
     }
     .logo-container {
         display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
+        
+        margin-bottom: 50px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-with st.container():
-    st.markdown('<div class="center-logo">', unsafe_allow_html=True)
-    st.image('loguito.png', caption=None, width=200, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    st.markdown('</div>', unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
+
+with col2:
+    st.image('loguito.png', caption=None, width=300, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    
 # App title and logo
 
 st.markdown('<h1 class="title">Bienvenido a tu Dog Breed Identifier</h1>', unsafe_allow_html=True)
