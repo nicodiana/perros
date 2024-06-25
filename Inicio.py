@@ -1,40 +1,7 @@
 import streamlit as st
 
-
-
-st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-    page_icon=":dog:",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    
-)
-import streamlit as st
-
-# Contenido de la sidebar
-with st.sidebar:
-    st.markdown("## 🐶 DOGGYS")
-    st.write("Consejos, recomendaciones y más...")
-
-    st.markdown("---")
-
-    # Campos de entrada de contacto
-    st.markdown("### Contactanos para más información!")
-    email = st.text_input("Email")
-    phone = st.text_input("Teléfono")
-
-# Botón para enviar la información
-    if st.button("Enviar Información"):
-        st.write("Información enviada:")
-        st.write(f"Email: {email}")
-        st.write(f"Teléfono: {phone}")
-  
-
-    st.markdown("---")
-
-    st.write("Gracias por utilizar DOGGYS!")
-
-
+# Streamlit configuration
+st.set_page_config(page_title="DogBreeds Detector", page_icon="🐾", layout="centered", initial_sidebar_state="auto")
 
 # Apply custom CSS for background color and styling
 st.markdown(
@@ -101,5 +68,3 @@ st.markdown('<div class="info-box"><div class="info-box-title">Beneficios de usa
 
 # Button to navigate to the second view
 st.markdown('<div class="btn-box"><a href="/Identificador" target="_self"><button style="background-color:#804000;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:20px;">Comenzá Aquí</button></a></div>', unsafe_allow_html=True)
-import streamlit as st
-

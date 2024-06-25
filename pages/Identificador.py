@@ -4,7 +4,6 @@ import numpy as np
 import streamlit as st
 import os
 
-
 # Obtener la ruta absoluta al directorio que contiene el script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -136,7 +135,7 @@ recommendations = {
     Consejos:
     Requieren entrenamiento y socialización desde temprana edad.
     """,
-    "German Sheperd": """
+    "German Shepherd": """
     Alimentación:
     Dieta de alta calidad con proteínas adecuadas para su tamaño y actividad.
     Cuidados específicos:
