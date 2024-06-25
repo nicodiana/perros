@@ -2,16 +2,41 @@ import streamlit as st
 
 # Configuración de página y estilos CSS personalizados
 st.set_page_config(
-    page_title="DOGGYS - Reconocimiento de Razas",
+    page_title="DOGGYS",
     page_icon=":dog:",
     layout="wide",
     initial_sidebar_state="expanded",
+    
 )
+
+
+# Contenido de la sidebar
+with st.sidebar:
+    st.markdown("## 🐶 DOGGYS")
+    st.write("Consejos, recomendaciones y más...")
+
+    st.markdown("---")
+
+    # Campos de entrada de contacto
+    st.markdown("### Contactanos para más información!")
+    email = st.text_input("Email")
+    phone = st.text_input("Teléfono")
+
+# Botón para enviar la información
+    if st.button("Enviar Información"):
+        st.write("Información enviada:")
+        st.write(f"Email: {email}")
+        st.write(f"Teléfono: {phone}")
+  
+
+    st.markdown("---")
+
+    st.write("Gracias por utilizar DOGGYS!")
 
 col1, col2, col3 = st.columns(3)
 
 with col2:
-    st.image('loguito.png', caption=None, width=300, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    st.image('loguito.png', caption=None, width=400, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
 # Estilos CSS para fondo y logo
 st.markdown(
