@@ -92,7 +92,7 @@ st.markdown(
 col1, col2, col3 = st.columns(3)
 
 with col2:
-    st.image('loguito.png', caption=None, width=300, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    st.image('loguito.png', caption=None, width=400, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     
 # App title and logo
 
