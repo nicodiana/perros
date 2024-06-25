@@ -4,6 +4,47 @@ import numpy as np
 import streamlit as st
 import os
 
+<<<<<<< HEAD
+=======
+st.set_page_config(
+    page_title="DOGGYS",
+    page_icon=":dog:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    
+)
+
+
+# Contenido de la sidebar
+with st.sidebar:
+    st.markdown("## 🐶 DOGGYS")
+    st.write("Consejos, recomendaciones y más...")
+
+    st.markdown("---")
+
+    # Campos de entrada de contacto
+    st.markdown("### Contactanos para más información!")
+    email = st.text_input("Email")
+    phone = st.text_input("Teléfono")
+
+# Botón para enviar la información
+    if st.button("Enviar Información"):
+        st.write("Información enviada:")
+        st.write(f"Email: {email}")
+        st.write(f"Teléfono: {phone}")
+  
+
+    st.markdown("---")
+
+    st.write("Gracias por utilizar DOGGYS!")
+
+col1, col2, col3 = st.columns(3)
+
+with col2:
+    st.image('loguito.png', caption=None, width=300, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+
+    
+>>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
 
 # Obtener la ruta absoluta al directorio que contiene el script
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -40,102 +81,141 @@ def classify_dog(img):
 
 # Función para generar recomendaciones según el label
 recommendations = {
+
     "Beagle": """
-    Alimentación:
-    Comida rica en proteínas de alta calidad. Controlar las porciones para evitar la obesidad, ya que tienden a ganar peso fácilmente.
-    Cuidados específicos:
-    Revisar sus orejas regularmente para evitar infecciones. Cepillado semanal y ejercicio diario.
-    Consejos:
-    Proveer juguetes para mantenerlos ocupados, ya que son curiosos y activos.
+    **Alimentación** 🍖:
+    - Comida rica en proteínas de alta calidad.
+    - Controlar las porciones para evitar la obesidad.
+
+    **Cuidados específicos** 🐕:
+    - Revisar sus orejas regularmente para evitar infecciones.
+    - Cepillado semanal y ejercicio diario.
+
+    **Consejos** 💡:
+    - Proveer juguetes para mantenerlos ocupados, ya que son curiosos y activos.
     """,
+
     "Bearded Collie": """
-    Alimentación:
-    Alimento balanceado con un buen contenido de proteínas y grasas.
-    Cuidados específicos:
-    Cepillado frecuente debido a su pelaje largo y denso.
-    Consejos:
-    Necesitan mucho ejercicio y estimulación mental. Son ideales para familias activas.
+    **Alimentación** 🍗:
+    - Dieta rica en proteínas y carbohidratos de calidad para soportar su energía.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado regular para manejar su pelaje doble y denso.
+
+    **Consejos** 🏃:
+    - Necesitan mucho ejercicio y estimulación mental, ideales para familias activas.
     """,
-    "Bernese Mountain Dog": """
-    Alimentación:
-    Alimento de alta calidad adecuado para razas grandes.
-    Cuidados específicos:
-    Cepillado regular para controlar la muda.
-    Consejos:
-    Necesitan espacio para moverse y son excelentes compañeros en climas fríos.
+
+    "Bermaise": """
+    **Alimentación** 🥩:
+    - Dieta rica en proteínas y grasas saludables.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado regular debido a su pelaje denso.
+
+    **Consejos** ❄️:
+    - Prefieren climas fríos y necesitan espacio para moverse.
     """,
+
     "Border Collie": """
-    Alimentación:
-    Dieta rica en proteínas para mantener su alta energía.
-    Cuidados específicos:
-    Cepillado regular y chequeos veterinarios para detectar problemas oculares comunes en la raza.
-    Consejos:
-    Requieren mucho ejercicio y entrenamiento para evitar el aburrimiento y conductas destructivas.
+    **Alimentación** 🍗:
+    - Dieta rica en proteínas y carbohidratos de calidad para soportar su energía.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado regular para manejar su pelaje doble y denso.
+
+    **Consejos** 🏃:
+    - Necesitan mucho ejercicio y estimulación mental, ideales para familias activas.
     """,
+
     "Boston Terrier": """
-    Alimentación:
-    Dieta balanceada y controlada para evitar el sobrepeso.
-    Cuidados específicos:
-    Limpieza regular de las arrugas faciales y control de la salud ocular.
-    Consejos:
-    Ejercicio moderado y juguetes interactivos para mantenerlos activos.
+    **Alimentación** 🍖:
+    - Alimento balanceado adecuado para perros de tamaño pequeño a mediano.
+
+    **Cuidados específicos** 🧽:
+    - Revisar sus ojos y orejas regularmente, ya que pueden ser propensos a infecciones.
+
+    **Consejos** 🏠:
+    - Son perros sociales y disfrutan de la compañía humana, ideales para la vida en apartamento.
     """,
+
     "Boxer": """
-    Alimentación:
-    Comida rica en proteínas y grasas saludables.
-    Cuidados específicos:
-    Ejercicio diario y control de la salud cardíaca.
-    Consejos:
-    Necesitan socialización y entrenamiento desde cachorros.
+    **Alimentación** 🥩:
+    - Comida rica en proteínas y grasas saludables para mantener su musculatura.
+
+    **Cuidados específicos** 🐾:
+    - Ejercicio regular y cuidado de su piel, especialmente en climas cálidos.
+
+    **Consejos** 🏋️:
+    - Necesitan mucho ejercicio y son muy leales, ideales para familias activas.
     """,
+
     "Bull Terrier": """
-    Alimentación:
-    Alimento balanceado y de alta calidad.
-    Cuidados específicos:
-    Cepillado semanal y ejercicio regular.
-    Consejos:
-    Requieren entrenamiento firme pero positivo.
+    **Alimentación** 🍗:
+    - Alimento de alta calidad con buen contenido de proteínas.
+
+    **Cuidados específicos** 🛁:
+    - Cuidado regular de la piel y los oídos.
+
+    **Consejos** 🎾:
+    - Necesitan ejercicio diario y juguetes resistentes debido a su fuerza y energía.
     """,
+
     "Bulldog": """
-    Alimentación:
-    Dieta controlada para evitar el sobrepeso.
-    Cuidados específicos:
-    Limpieza regular de las arrugas faciales y cuidado de su piel.
-    Consejos:
-    Ejercicio moderado debido a su tendencia a sufrir problemas respiratorios.
+    **Alimentación** 🥩:
+    - Comida balanceada con control de porciones para evitar la obesidad.
+
+    **Cuidados específicos** 🧼:
+    - Limpieza regular de los pliegues de la piel y cuidado dental.
+
+    **Consejos** 🏡:
+    - Son ideales para la vida en apartamento y disfrutan de la compañía humana.
     """,
+
     "Chihuahua": """
-    Alimentación:
-    Comida especial para razas pequeñas, en porciones controladas.
-    Cuidados específicos:
-    Abrigo en climas fríos y revisión dental regular.
-    Consejos:
-    Socialización temprana para evitar problemas de comportamiento.
+    **Alimentación** 🍖:
+    - Comida adecuada para perros pequeños con control de porciones.
+
+    **Cuidados específicos** 🧼:
+    - Cuidado dental regular y abrigo en climas fríos.
+
+    **Consejos** 🏠:
+    - Ideales para la vida en apartamento, necesitan socialización y compañía humana.
     """,
-    "Chow Chow": """
-    Alimentación:
-    Dieta balanceada y de alta calidad.
-    Cuidados específicos:
-    Cepillado regular debido a su denso pelaje.
-    Consejos:
-    Requieren entrenamiento firme y socialización temprana.
+
+    "Chow": """
+    **Alimentación** 🥩:
+    - Dieta rica en proteínas y grasas saludables.
+
+    **Cuidados específicos** 🪮:
+    - Cepillado regular debido a su pelaje denso.
+
+    **Consejos** ❄️:
+    - Prefieren climas fríos y necesitan espacio para moverse.
     """,
-    "Dálmata": """
-    Alimentación:
-    Dieta rica en proteínas y bajo en purinas para evitar problemas renales.
-    Cuidados específicos:
-    Ejercicio regular y cuidado de su piel.
-    Consejos:
-    Son muy activos y necesitan mucho ejercicio y estímulo mental.
+
+    "Dalmation": """
+    **Alimentación** 🍖:
+    - Comida rica en proteínas y con control de porciones.
+
+    **Cuidados específicos** 🧽:
+    - Ejercicio regular y cuidado de su piel, especialmente en climas cálidos.
+
+    **Consejos** 🚴:
+    - Necesitan mucho ejercicio y estimulación mental, ideales para familias activas.
     """,
+
     "Doberman": """
-    Alimentación:
-    Dieta rica en proteínas y nutrientes esenciales.
-    Cuidados específicos:
-    Ejercicio intenso y revisiones veterinarias regulares.
-    Consejos:
-    Requieren entrenamiento y socialización desde temprana edad.
+    **Alimentación** 🍗:
+    - Dieta rica en proteínas de alta calidad.
+
+    **Cuidados específicos** 🧼:
+    - Ejercicio regular y cuidado de la piel.
+
+    **Consejos** 🏃:
+    - Necesitan mucho ejercicio y son leales, ideales para dueños experimentados.
     """,
+<<<<<<< HEAD
     "German Sheperd": """
     Alimentación:
     Dieta de alta calidad con proteínas adecuadas para su tamaño y actividad.
@@ -143,119 +223,118 @@ recommendations = {
     Cepillado regular y ejercicio intenso.
     Consejos:
     Son muy inteligentes y necesitan entrenamiento continuo.
+=======
+
+    "German Sheperd": """
+    **Alimentación** 🥩:
+    - Comida rica en proteínas y grasas de calidad.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado regular para manejar la muda y ejercicio diario.
+
+    **Consejos** 🏋️:
+    - Necesitan mucho ejercicio y estimulación mental, ideales para tareas de trabajo y compañía.
+>>>>>>> 8926c8c64a50437ef77ffcf972009d45b13345dd
     """,
+
     "Golden Retriever": """
-    Alimentación:
-    Comida rica en proteínas y grasas saludables.
-    Cuidados específicos:
-    Cepillado regular y ejercicio diario.
-    Consejos:
-    Son muy sociables y disfrutan de actividades con la familia.
+    **Alimentación** 🍗:
+    - Dieta balanceada con proteínas y grasas saludables.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado regular y ejercicio diario.
+
+    **Consejos** 🏊:
+    - Son excelentes nadadores y necesitan mucho ejercicio y socialización.
     """,
+
     "Maltese": """
-    Alimentación:
-    Dieta especial para razas pequeñas, rica en nutrientes.
-    Cuidados específicos:
-    Cepillado diario y cuidado dental.
-    Consejos:
-    Necesitan compañía y no les gusta estar solos por mucho tiempo.
+    **Alimentación** 🍖:
+    - Comida adecuada para perros pequeños con control de porciones.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado diario y cuidado dental regular.
+
+    **Consejos** 🏠:
+    - Ideales para la vida en apartamento, necesitan socialización y compañía humana.
     """,
+
     "Newfoundland": """
-    Alimentación:
-    Alimento para razas grandes con contenido equilibrado de proteínas y grasas.
-    Cuidados específicos:
-    Cepillado regular y ejercicio moderado.
-    Consejos:
-    Son excelentes nadadores y disfrutan de actividades acuáticas.
+    **Alimentación** 🍗:
+    - Alimento de alta calidad adecuado para razas grandes.
+
+    **Cuidados específicos** 🪮:
+    - Cepillado regular debido a su pelaje denso y ejercicio diario.
+
+    **Consejos** 🛶:
+    - Son excelentes nadadores y necesitan espacio para moverse.
     """,
-    "Pekingese": """
-    Alimentación:
-    Comida para razas pequeñas, rica en nutrientes y en porciones controladas.
-    Cuidados específicos:
-    Cepillado regular y cuidado de los ojos.
-    Consejos:
-    Evitar el calor extremo debido a su estructura facial.
+
+    "Pekinese": """
+    **Alimentación** 🍖:
+    - Comida adecuada para perros pequeños con control de porciones.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado regular y cuidado dental.
+
+    **Consejos** 🏠:
+    - Ideales para la vida en apartamento, necesitan socialización y compañía humana.
     """,
+
     "Pit Bull": """
-    Alimentación:
-    Dieta rica en proteínas y grasas saludables.
-    Cuidados específicos:
-    Ejercicio regular y chequeos veterinarios frecuentes.
-    Consejos:
-    Requieren socialización temprana y entrenamiento consistente.
+    **Alimentación** 🥩:
+    - Dieta rica en proteínas y grasas de calidad.
+
+    **Cuidados específicos** 🛁:
+    - Ejercicio regular y cuidado de la piel.
+
+    **Consejos** 🏋️:
+    - Necesitan mucho ejercicio y socialización, ideales para dueños experimentados.
     """,
+
     "Poodle": """
-    Alimentación:
-    Dieta balanceada con proteínas de alta calidad.
-    Cuidados específicos:
-    Cepillado y cortes de pelo regulares.
-    Consejos:
-    Son muy inteligentes y disfrutan de actividades mentales.
+    **Alimentación** 🍗:
+    - Comida balanceada con buen contenido de proteínas.
+
+    **Cuidados específicos** 🧼:
+    - Cepillado regular y cuidado dental.
+
+    **Consejos** 🐩:
+    - Necesitan ejercicio regular y estimulación mental, ideales para familias activas.
     """,
+
     "Pug": """
-    Alimentación:
-    Comida controlada en calorías para evitar el sobrepeso.
-    Cuidados específicos:
-    Limpieza de arrugas faciales y control de su respiración.
-    Consejos:
-    Ejercicio moderado y evitar el calor extremo.
+    **Alimentación** 🍖:
+    - Comida balanceada con control de porciones para evitar la obesidad.
+
+    **Cuidados específicos** 🧼:
+    - Limpieza regular de los pliegues de la piel y cuidado dental.
+
+    **Consejos** 🏡:
+    - Son ideales para la vida en apartamento y disfrutan de la compañía humana.
     """,
+
     "Rottweiler": """
-    Alimentación:
-    Dieta rica en proteínas adecuada para razas grandes.
-    Cuidados específicos:
-    Ejercicio regular y chequeos de salud.
-    Consejos:
-    Requieren entrenamiento firme y socialización temprana.
+    **Alimentación** 🥩:
+    - Dieta rica en proteínas y grasas de calidad.
+
+    **Cuidados específicos** 🧽:
+    - Ejercicio regular y cuidado de la piel.
+
+    **Consejos** 🏋️:
+    - Necesitan mucho ejercicio y son leales, ideales para familias activas.
     """,
+
     "Saint Bernard": """
-    Alimentación:
-    Alimento de alta calidad para razas gigantes.
-    Cuidados específicos:
-    Cepillado regular y ejercicio moderado.
-    Consejos:
-    Son propensos al calor, por lo que es mejor mantenerlos en climas frescos.
-    """,
-    "Samoyed": """
-    Alimentación:
-    Dieta equilibrada con un buen contenido de proteínas y grasas.
-    Cuidados específicos:
-    Cepillado diario debido a su pelaje denso.
-    Consejos:
-    Les encanta el ejercicio y son muy sociables.
-    """,
-    "Shih Tzu": """
-    Alimentación:
-    Comida especial para razas pequeñas, rica en nutrientes.
-    Cuidados específicos:
-    Cepillado diario y cuidado de los ojos.
-    Consejos:
-    Necesitan compañía y no les gusta estar solos por mucho tiempo.
-    """,
-    "Siberian Husky": """
-    Alimentación:
-    Dieta rica en proteínas y grasas saludables.
-    Cuidados específicos:
-    Ejercicio intenso y evitar climas cálidos.
-    Consejos:
-    Son muy activos y necesitan estímulo mental.
-    """,
-    "Staffordshire Bull Terrier": """
-    Alimentación:
-    Dieta balanceada con proteínas de alta calidad.
-    Cuidados específicos:
-    Ejercicio regular y socialización desde temprana edad.
-    Consejos:
-    Requieren entrenamiento consistente y positivo.
-    """,
-    "Yorkshire Terrier": """
-    Alimentación:
-    Comida especial para razas pequeñas, rica en nutrientes.
-    Cuidados específicos:
-    Cepillado diario y control dental regular.
-    Consejos:
-    Necesitan estímulo mental y socialización.
-    """,
+    **Alimentación** 🍖:
+    - Alimento de alta calidad adecuado para razas grandes.
+
+    **Cuidados específicos** 🪮:
+    - Cepillado regular debido a su pelaje denso y ejercicio diario.
+
+    **Consejos** ⛷️:
+    - Necesitan espacio para moverse y son excelentes compañeros de familia.
+    """
 }
 
 def generate_recipe(label):
@@ -263,9 +342,6 @@ def generate_recipe(label):
         return recommendations[label]
     else:
         return "No se encontraron recomendaciones para esta raza."
-
-# Streamlit configuration
-st.set_page_config(page_title="Comienza tu aventura junto a tu mascota", page_icon="🐾", layout="centered", initial_sidebar_state="auto")
 
 # Apply custom CSS for background color and styling
 st.markdown(
@@ -354,7 +430,6 @@ st.markdown(
 )
 
 # App title and logo
-st.markdown('<div class="logo-container"><img src="loguito.png" width="200"></div>', unsafe_allow_html=True)
 st.markdown('<h1 class="title">Comienza tu aventura junto a tu mascota</h1>', unsafe_allow_html=True)
 
 # Upload box
@@ -374,7 +449,7 @@ if input_img is not None:
             st.image(input_img, use_column_width=True)
 
         with st.container():
-            st.markdown('<div class="info-box">Resultado</div>', unsafe_allow_html=True)
+            st.subheader('Resultado')
             image_file = Image.open(input_img)
 
             with st.spinner('Analizando imagen...'):
@@ -383,26 +458,44 @@ if input_img is not None:
                     label_description = label.split(maxsplit=1)[1].strip()  # To get breed name
                     st.session_state['label'] = label_description
 
-                    if confidence_score < 0.6:
-                        st.error("La confianza en la clasificación es baja. Por favor, adjunta otra foto.")
+                    if confidence_score < 0.89:
+                        st.error("No pudimos identificar a tu mascota. Por favor, adjunta otra foto.")
                     else:
                         st.success(f"Raza: {st.session_state['label']}")
-                        st.write(f"Confianza: {confidence_score * 100:.2f}%")
+                        st.write(f"Seguridad de identificación: {confidence_score * 100:.2f}%")
 
                         # Mostrar recomendaciones si la confianza es alta
-                        with st.container():
-                            st.markdown('<div class="recommendations">', unsafe_allow_html=True)
-                            st.markdown('<p>Recomendaciones</p>', unsafe_allow_html=True)
-                            result = generate_recipe(label_description)
-                            st.markdown(f"<div class='info-box'>{result}</div>", unsafe_allow_html=True)
-                            st.markdown('</div>', unsafe_allow_html=True)
-                            st.success("Recomendaciones generadas.")
+                        st.subheader('Recomendaciones')
+                        result = generate_recipe(label_description)
+                        st.markdown(result, unsafe_allow_html=True)
+
                 else:
                     st.error("No se pudo clasificar la raza del perro.")
+            st.markdown('</div>', unsafe_allow_html=True)
 
         st.markdown('</div>', unsafe_allow_html=True)
 
-# Botón de más recomendaciones
-st.markdown('<div class="btn-box">', unsafe_allow_html=True)
-st.markdown('<a href="#more-recommendations" class="more-btn">Más recomendaciones</a>', unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
+import streamlit as st
+
+# Agregar estilos CSS personalizados
+st.markdown(
+    """
+    <style>
+    .stButton>button {
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+    .stButton>button:hover {
+        background-color: black;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Button to navigate to the second view
+st.markdown('<div class="btn-box"><a href="/Conozco_la_raza" target="_self"><button style="background-color:#804000;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:20px;">Ya se la raza de mi perro</button></a></div>', unsafe_allow_html=True)
+
