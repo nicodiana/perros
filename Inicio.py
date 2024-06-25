@@ -1,7 +1,44 @@
 import streamlit as st
 
+
 # Streamlit configuration
-st.set_page_config(page_title="DogBreeds Detector", page_icon="🐾", layout="centered", initial_sidebar_state="auto")
+
+
+import streamlit as st
+
+
+
+st.set_page_config(
+    page_title="DOGGYS",
+    page_icon=":dog:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    
+)
+
+
+# Contenido de la sidebar
+with st.sidebar:
+    st.markdown("## 🐶 DOGGYS")
+    st.write("Consejos, recomendaciones y más...")
+
+    st.markdown("---")
+
+    # Campos de entrada de contacto
+    st.markdown("### Contactanos para más información!")
+    email = st.text_input("Email")
+    phone = st.text_input("Teléfono")
+
+# Botón para enviar la información
+    if st.button("Enviar Información"):
+        st.write("Información enviada:")
+        st.write(f"Email: {email}")
+        st.write(f"Teléfono: {phone}")
+  
+
+    st.markdown("---")
+
+    st.write("Gracias por utilizar DOGGYS!")
 
 # Apply custom CSS for background color and styling
 st.markdown(
@@ -45,17 +82,18 @@ st.markdown(
     }
     .logo-container {
         display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
+        
+        margin-bottom: 50px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-with st.container():
-    st.markdown('<div class="center-logo">', unsafe_allow_html=True)
-    st.image('loguito.png', caption=None, width=200, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    st.markdown('</div>', unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
+
+with col2:
+    st.image('loguito.png', caption=None, width=300, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    
 # App title and logo
 
 st.markdown('<h1 class="title">Bienvenido a tu Dog Breed Identifier</h1>', unsafe_allow_html=True)

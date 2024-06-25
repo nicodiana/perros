@@ -1,84 +1,93 @@
-from keras.models import load_model
-from PIL import Image, ImageOps
-import numpy as np
 import streamlit as st
-import os
 
+# Configuración de página y estilos CSS personalizados
 st.set_page_config(
-    page_title="DOGGYS",
+    page_title="DOGGYS - Reconocimiento de Razas",
     page_icon=":dog:",
     layout="wide",
     initial_sidebar_state="expanded",
-    
 )
-
-
-# Contenido de la sidebar
-with st.sidebar:
-    st.markdown("## 🐶 DOGGYS")
-    st.write("Consejos, recomendaciones y más...")
-
-    st.markdown("---")
-
-    # Campos de entrada de contacto
-    st.markdown("### Contactanos para más información!")
-    email = st.text_input("Email")
-    phone = st.text_input("Teléfono")
-
-# Botón para enviar la información
-    if st.button("Enviar Información"):
-        st.write("Información enviada:")
-        st.write(f"Email: {email}")
-        st.write(f"Teléfono: {phone}")
-  
-
-    st.markdown("---")
-
-    st.write("Gracias por utilizar DOGGYS!")
 
 col1, col2, col3 = st.columns(3)
 
 with col2:
     st.image('loguito.png', caption=None, width=300, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
-    
+# Estilos CSS para fondo y logo
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #f5f5dc;
+        font-family: 'Arial', sans-serif;
+    }
+    .title {
+        font-size: 48px;
+        font-weight: bold;
+        color: #5d3a1a;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .info-box {
+        font-size: 18px;
+        color: #5d3a1a;
+        padding: 20px;
+        background-color: #faf0e6;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Obtener la ruta absoluta al directorio que contiene el script
-script_dir = os.path.dirname(os.path.abspath(__file__))
+# Título principal y logo
+st.markdown('<h1 class="title">Descubre recomendaciones personalizadas para tu mascota</h1>', unsafe_allow_html=True)
 
-def classify_dog(img):
-    np.set_printoptions(suppress=True)
-    model_path = os.path.join(script_dir, "..", "modelo", "keras_model.h5")
-    if not os.path.exists(model_path):
-        st.error(f"Modelo no encontrado en {model_path}")
-        return None, None
+import streamlit as st
 
-    model = load_model(model_path, compile=False)
-    labels_path = os.path.join(script_dir, "..", "modelo", "labels.txt")
-    if not os.path.exists(labels_path):
-        st.error(f"Archivo de etiquetas no encontrado en {labels_path}")
-        return None, None
 
-    class_names = open(labels_path, "r").readlines()
 
-    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-    image = img.convert("RGB")
-    size = (224, 224)
-    image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
-    image_array = np.asarray(image)
-    normalized_image_array = (image_array.astype(np.float32) / 127.5) - 1
-    data[0] = normalized_image_array
+# Campo de entrada para el nombre de la raza con estilo mejorado
+st.markdown('<p class="input-label">Ingrese la raza de su perro:</p>', unsafe_allow_html=True)
+user_input = st.text_input("", "")
 
-    prediction = model.predict(data)
-    index = np.argmax(prediction)
-    class_name = class_names[index]
-    confidence_score = prediction[0][index]
+# Estilos CSS para el campo de entrada mejorado
+st.markdown(
+    """
+    <style>
+    .input-label {
+        font-size: 24px;
+        font-weight: bold;
+        color: #5d3a1a;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .text-input {
+        font-size: 18px;
+        padding: 12px;
+        border: 2px solid #5d3a1a;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        display: block;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-    return class_name, confidence_score
 
-# Función para generar recomendaciones según el label
+
+# Función para generar recomendaciones según la raza ingresada
 recommendations = {
-
     "Beagle": """
     *Alimentación* 🍖:
     - Comida rica en proteínas de alta calidad.
@@ -90,7 +99,8 @@ recommendations = {
 
     *Consejos* 💡:
     - Proveer juguetes para mantenerlos ocupados, ya que son curiosos y activos.
-    """,
+    """
+    ,
 
     "Bearded Collie": """
     *Alimentación* 🍗:
@@ -324,164 +334,43 @@ recommendations = {
     """
 }
 
-def generate_recipe(label):
-    if label in recommendations:
-        return recommendations[label]
+def generate_recommendations(dog_breed):
+    if dog_breed in recommendations:
+        return recommendations[dog_breed]
     else:
-        return "No se encontraron recomendaciones para esta raza."
-
-# Apply custom CSS for background color and styling
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #f5f5dc;
-        font-family: 'Arial', sans-serif;
-    }
-    .title {
-        font-size: 48px;
-        font-weight: bold;
-        color: #5d3a1a;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .subtitle {
-        font-size: 24px;
-        color: #5d3a1a;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .info-box {
-        font-size: 18px;
-        color: #5d3a1a;
-        padding: 20px;
-        background-color: #faf0e6;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-    }
-    .upload-box {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    .btn-box {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    .columns {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    .column {
-        flex: 1;
-        margin: 10px;
-    }
-    .logo-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
-    }
-    .recommendations {
-        padding: 20px;
-        background-color: #faf0e6;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 40px;
-    }
-    .recommendations p {
-        font-size: 18px;
-        color: #5d3a1a;
-        margin-bottom: 10px;
-    }
-    .more-btn {
-        background-color: #5d3a1a;
-        color: white;
-        font-size: 18px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        text-decoration: none;
-    }
-    .more-btn:hover {
-        background-color: #824c1a;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-# App title and logo
-st.markdown('<h1 class="title">Comienza tu aventura junto a tu mascota</h1>', unsafe_allow_html=True)
-
-# Upload box
-st.markdown('<div class="upload-box">', unsafe_allow_html=True)
-input_img = st.file_uploader("", type=['jpg', 'png', 'jpeg'])
-st.markdown('</div>', unsafe_allow_html=True)
-
-# Button box
-st.markdown('<div class="btn-box">', unsafe_allow_html=True)
-if input_img is not None:
-    if st.button("Determinar la raza"):
-        # Columns for displaying results
-        st.markdown('<div class="columns">', unsafe_allow_html=True)
-
-        with st.container():
-            st.markdown('<div class="info-box">Imagen cargada</div>', unsafe_allow_html=True)
-            st.image(input_img, use_column_width=True)
-
-        with st.container():
-            st.subheader('Resultado')
-            image_file = Image.open(input_img)
-
-            with st.spinner('Analizando imagen...'):
-                label, confidence_score = classify_dog(image_file)
-                if label is not None and confidence_score is not None:
-                    label_description = label.split(maxsplit=1)[1].strip()  # To get breed name
-                    st.session_state['label'] = label_description
-
-                    if confidence_score < 0.89:
-                        st.error("No pudimos identificar a tu mascota. Por favor, adjunta otra foto.")
-                    else:
-                        st.success(f"Raza: {st.session_state['label']}")
-                        st.write(f"Seguridad de identificación: {confidence_score * 100:.2f}%")
-
-                        # Mostrar recomendaciones si la confianza es alta
-                        st.subheader('Recomendaciones')
-                        result = generate_recipe(label_description)
-                        st.markdown(result, unsafe_allow_html=True)
-
-                else:
-                    st.error("No se pudo clasificar la raza del perro.")
-            st.markdown('</div>', unsafe_allow_html=True)
-
-        st.markdown('</div>', unsafe_allow_html=True)
+        return f"No se encontraron recomendaciones para la raza {dog_breed}. Por favor, verifique el nombre ingresado."
 
 import streamlit as st
 
-# Agregar estilos CSS personalizados
+# Estilo personalizado para el botón
 st.markdown(
     """
     <style>
-    .stButton>button {
-        background-color: white;
-        color: black;
-        border: 2px solid black;
-        border-radius: 5px;
-    }
-    .stButton>button:hover {
-        background-color: black;
+    .stButton button {
+        background-color: #804000;
         color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    
+        transition: background-color 0.3s ease;
+    }
+    .stButton button:hover {
+        background-color: #955f34;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Button to navigate to the second view
-st.markdown('<div class="btn-box"><a href="/Conozco_la_raza" target="_self"><button style="background-color:#804000;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:20px;">Ya se la raza de mi perro</button></a></div>', unsafe_allow_html=True)
+# Botón para buscar la raza ingresada
+if st.button("Buscar Raza"):
+    st.markdown('<div class="info-box">Raza ingresada por el usuario</div>', unsafe_allow_html=True)
+    st.markdown(f"*Raza ingresada:* {user_input}")
+
+    st.subheader('Recomendaciones')
+    result = generate_recommendations(user_input)
+    st.markdown(result, unsafe_allow_html=True)
