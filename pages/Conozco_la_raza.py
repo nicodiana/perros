@@ -89,247 +89,247 @@ st.markdown(
 # Función para generar recomendaciones según la raza ingresada
 recommendations = {
     "Beagle": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Comida rica en proteínas de alta calidad.
     - Controlar las porciones para evitar la obesidad.
 
-    **Cuidados específicos** 🐕:
+    *Cuidados específicos* 🐕:
     - Revisar sus orejas regularmente para evitar infecciones.
     - Cepillado semanal y ejercicio diario.
 
-    **Consejos** 💡:
+    *Consejos* 💡:
     - Proveer juguetes para mantenerlos ocupados, ya que son curiosos y activos.
     """
     ,
 
     "Bearded Collie": """
-    **Alimentación** 🍗:
+    *Alimentación* 🍗:
     - Dieta rica en proteínas y carbohidratos de calidad para soportar su energía.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado regular para manejar su pelaje doble y denso.
 
-    **Consejos** 🏃:
+    *Consejos* 🏃:
     - Necesitan mucho ejercicio y estimulación mental, ideales para familias activas.
     """,
 
     "Bermaise": """
-    **Alimentación** 🥩:
+    *Alimentación* 🥩:
     - Dieta rica en proteínas y grasas saludables.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado regular debido a su pelaje denso.
 
-    **Consejos** ❄️:
+    *Consejos* ❄️:
     - Prefieren climas fríos y necesitan espacio para moverse.
     """,
 
     "Border Collie": """
-    **Alimentación** 🍗:
+    *Alimentación* 🍗:
     - Dieta rica en proteínas y carbohidratos de calidad para soportar su energía.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado regular para manejar su pelaje doble y denso.
 
-    **Consejos** 🏃:
+    *Consejos* 🏃:
     - Necesitan mucho ejercicio y estimulación mental, ideales para familias activas.
     """,
 
     "Boston Terrier": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Alimento balanceado adecuado para perros de tamaño pequeño a mediano.
 
-    **Cuidados específicos** 🧽:
+    *Cuidados específicos* 🧽:
     - Revisar sus ojos y orejas regularmente, ya que pueden ser propensos a infecciones.
 
-    **Consejos** 🏠:
+    *Consejos* 🏠:
     - Son perros sociales y disfrutan de la compañía humana, ideales para la vida en apartamento.
     """,
 
     "Boxer": """
-    **Alimentación** 🥩:
+    *Alimentación* 🥩:
     - Comida rica en proteínas y grasas saludables para mantener su musculatura.
 
-    **Cuidados específicos** 🐾:
+    *Cuidados específicos* 🐾:
     - Ejercicio regular y cuidado de su piel, especialmente en climas cálidos.
 
-    **Consejos** 🏋️:
+    *Consejos* 🏋️:
     - Necesitan mucho ejercicio y son muy leales, ideales para familias activas.
     """,
 
     "Bull Terrier": """
-    **Alimentación** 🍗:
+    *Alimentación* 🍗:
     - Alimento de alta calidad con buen contenido de proteínas.
 
-    **Cuidados específicos** 🛁:
+    *Cuidados específicos* 🛁:
     - Cuidado regular de la piel y los oídos.
 
-    **Consejos** 🎾:
+    *Consejos* 🎾:
     - Necesitan ejercicio diario y juguetes resistentes debido a su fuerza y energía.
     """,
 
     "Bulldog": """
-    **Alimentación** 🥩:
+    *Alimentación* 🥩:
     - Comida balanceada con control de porciones para evitar la obesidad.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Limpieza regular de los pliegues de la piel y cuidado dental.
 
-    **Consejos** 🏡:
+    *Consejos* 🏡:
     - Son ideales para la vida en apartamento y disfrutan de la compañía humana.
     """,
 
     "Chihuahua": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Comida adecuada para perros pequeños con control de porciones.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cuidado dental regular y abrigo en climas fríos.
 
-    **Consejos** 🏠:
+    *Consejos* 🏠:
     - Ideales para la vida en apartamento, necesitan socialización y compañía humana.
     """,
 
     "Chow": """
-    **Alimentación** 🥩:
+    *Alimentación* 🥩:
     - Dieta rica en proteínas y grasas saludables.
 
-    **Cuidados específicos** 🪮:
+    *Cuidados específicos* 🪮:
     - Cepillado regular debido a su pelaje denso.
 
-    **Consejos** ❄️:
+    *Consejos* ❄️:
     - Prefieren climas fríos y necesitan espacio para moverse.
     """,
 
     "Dalmation": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Comida rica en proteínas y con control de porciones.
 
-    **Cuidados específicos** 🧽:
+    *Cuidados específicos* 🧽:
     - Ejercicio regular y cuidado de su piel, especialmente en climas cálidos.
 
-    **Consejos** 🚴:
+    *Consejos* 🚴:
     - Necesitan mucho ejercicio y estimulación mental, ideales para familias activas.
     """,
 
     "Doberman": """
-    **Alimentación** 🍗:
+    *Alimentación* 🍗:
     - Dieta rica en proteínas de alta calidad.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Ejercicio regular y cuidado de la piel.
 
-    **Consejos** 🏃:
+    *Consejos* 🏃:
     - Necesitan mucho ejercicio y son leales, ideales para dueños experimentados.
     """,
 
     "German Sheperd": """
-    **Alimentación** 🥩:
+    *Alimentación* 🥩:
     - Comida rica en proteínas y grasas de calidad.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado regular para manejar la muda y ejercicio diario.
 
-    **Consejos** 🏋️:
+    *Consejos* 🏋️:
     - Necesitan mucho ejercicio y estimulación mental, ideales para tareas de trabajo y compañía.
     """,
 
     "Golden Retriever": """
-    **Alimentación** 🍗:
+    *Alimentación* 🍗:
     - Dieta balanceada con proteínas y grasas saludables.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado regular y ejercicio diario.
 
-    **Consejos** 🏊:
+    *Consejos* 🏊:
     - Son excelentes nadadores y necesitan mucho ejercicio y socialización.
     """,
 
     "Maltese": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Comida adecuada para perros pequeños con control de porciones.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado diario y cuidado dental regular.
 
-    **Consejos** 🏠:
+    *Consejos* 🏠:
     - Ideales para la vida en apartamento, necesitan socialización y compañía humana.
     """,
 
     "Newfoundland": """
-    **Alimentación** 🍗:
+    *Alimentación* 🍗:
     - Alimento de alta calidad adecuado para razas grandes.
 
-    **Cuidados específicos** 🪮:
+    *Cuidados específicos* 🪮:
     - Cepillado regular debido a su pelaje denso y ejercicio diario.
 
-    **Consejos** 🛶:
+    *Consejos* 🛶:
     - Son excelentes nadadores y necesitan espacio para moverse.
     """,
 
     "Pekinese": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Comida adecuada para perros pequeños con control de porciones.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado regular y cuidado dental.
 
-    **Consejos** 🏠:
+    *Consejos* 🏠:
     - Ideales para la vida en apartamento, necesitan socialización y compañía humana.
     """,
 
     "Pit Bull": """
-    **Alimentación** 🥩:
+    *Alimentación* 🥩:
     - Dieta rica en proteínas y grasas de calidad.
 
-    **Cuidados específicos** 🛁:
+    *Cuidados específicos* 🛁:
     - Ejercicio regular y cuidado de la piel.
 
-    **Consejos** 🏋️:
+    *Consejos* 🏋️:
     - Necesitan mucho ejercicio y socialización, ideales para dueños experimentados.
     """,
 
     "Poodle": """
-    **Alimentación** 🍗:
+    *Alimentación* 🍗:
     - Comida balanceada con buen contenido de proteínas.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Cepillado regular y cuidado dental.
 
-    **Consejos** 🐩:
+    *Consejos* 🐩:
     - Necesitan ejercicio regular y estimulación mental, ideales para familias activas.
     """,
 
     "Pug": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Comida balanceada con control de porciones para evitar la obesidad.
 
-    **Cuidados específicos** 🧼:
+    *Cuidados específicos* 🧼:
     - Limpieza regular de los pliegues de la piel y cuidado dental.
 
-    **Consejos** 🏡:
+    *Consejos* 🏡:
     - Son ideales para la vida en apartamento y disfrutan de la compañía humana.
     """,
 
     "Rottweiler": """
-    **Alimentación** 🥩:
+    *Alimentación* 🥩:
     - Dieta rica en proteínas y grasas de calidad.
 
-    **Cuidados específicos** 🧽:
+    *Cuidados específicos* 🧽:
     - Ejercicio regular y cuidado de la piel.
 
-    **Consejos** 🏋️:
+    *Consejos* 🏋️:
     - Necesitan mucho ejercicio y son leales, ideales para familias activas.
     """,
 
     "Saint Bernard": """
-    **Alimentación** 🍖:
+    *Alimentación* 🍖:
     - Alimento de alta calidad adecuado para razas grandes.
 
-    **Cuidados específicos** 🪮:
+    *Cuidados específicos* 🪮:
     - Cepillado regular debido a su pelaje denso y ejercicio diario.
 
-    **Consejos** ⛷️:
+    *Consejos* ⛷️:
     - Necesitan espacio para moverse y son excelentes compañeros de familia.
     """
 }
@@ -369,7 +369,7 @@ st.markdown(
 # Botón para buscar la raza ingresada
 if st.button("Buscar Raza"):
     st.markdown('<div class="info-box">Raza ingresada por el usuario</div>', unsafe_allow_html=True)
-    st.markdown(f"**Raza ingresada:** {user_input}")
+    st.markdown(f"*Raza ingresada:* {user_input}")
 
     st.subheader('Recomendaciones')
     result = generate_recommendations(user_input)
