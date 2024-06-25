@@ -105,8 +105,4 @@ st.markdown('<div class="info-box"><div class="info-box-title">¿Cómo usar la A
 st.markdown('<div class="info-box"><div class="info-box-title">Beneficios de usar DOGGYS</div>- Conoce lo mejor para tu mascota.<br>- Ahorra tiempo y dinero, evitando acciones innecesarias.<br>- Sentite seguro: nuestra app utiliza un modelo de IA avanzado entrenado con miles de imágenes para garantizar precisión en la identificación.<br>- Complementa el cuidado de tu mascota junto con tu veterinario de confianza brindandole lo más adecuado para su bienestar.</div>', unsafe_allow_html=True)
 
 # Button to navigate to the second view
-<<<<<<< Updated upstream
 st.markdown('<div class="btn-box"><a href="/Identificador" target="_self"><button style="background-color:#804000;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:20px;">Comenzá Aquí</button></a></div>', unsafe_allow_html=True)
-=======
-st.markdown('<div class="btn-box"><a href="/Identificador" target="_self"><button style="background-color:#804000;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:20px;">Comenzá Aquí</button></a></div>', unsafe_allow_html=True)
->>>>>>> Stashed changes
