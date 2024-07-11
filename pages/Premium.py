@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import datetime, timedelta
+from datetime import datetime
 import json
 
 # Configuración de página y estilos CSS personalizados
@@ -19,6 +19,16 @@ def load_history():
     if "history" not in st.session_state:
         st.session_state.history = []
     return st.session_state.history
+
+# Función para guardar testimonios en el almacenamiento de sesión
+def save_testimonies(data):
+    st.session_state.testimonies = data
+
+# Función para cargar testimonios desde el almacenamiento de sesión
+def load_testimonies():
+    if "testimonies" not in st.session_state:
+        st.session_state.testimonies = []
+    return st.session_state.testimonies
 
 # Contenido de la sidebar
 with st.sidebar:
@@ -132,27 +142,34 @@ st.markdown(
 
 # Sección de registro/login para usuarios premium
 st.markdown("---")
-st.markdown("## Funcionalidades Exclusivas para Usuarios Premium")
+st.markdown("## 🐶 Funcionalidades Exclusivas para Usuarios Premium")
 
 # Formulario de inicio de sesión/registro
-st.markdown("### Registro/Login de Usuarios Premium")
+st.markdown("### 🐶 Inicio de sesión para Usuarios Premium")
 username = st.text_input("Nombre de usuario")
 password = st.text_input("Contraseña", type="password")
 
-# Simulación de autenticación
-if st.button("Iniciar sesión / Registrarse"):
-    if username and password:
-        st.success("Inicio de sesión/Registro exitoso.")
-        st.session_state.is_premium = True
-    else:
-        st.error("Por favor, ingrese su nombre de usuario y contraseña.")
-        st.session_state.is_premium = False
+# Botones de inicio de sesión y registro alineados horizontalmente
+col1, col2 = st.columns([1, 1])
+with col1:
+    if st.button("Iniciar sesión"):
+        if username and password:
+            st.success("Inicio de sesión exitoso.")
+            st.session_state.is_premium = True
+        else:
+            st.error("Por favor, ingrese su nombre de usuario y contraseña.")
+            st.session_state.is_premium = False
+
+with col2:
+    st.markdown('<a href="#" style="text-decoration:none;">¿No tienes una cuenta? <strong>Registrate</strong></a>', unsafe_allow_html=True)
+
+
 
 # Verificar si el usuario es premium
 is_premium = st.session_state.get("is_premium", False)
 
 if is_premium:
-    st.markdown("### Comunícate ahora con un Veterinario")
+    st.markdown("### 🐶 Comunícate ahora con un Veterinario")
     st.write("Como usuario premium, puedes comunicarte en tiempo real con nuestros veterinarios expertos.")
 
     # Botón para iniciar chat con veterinario
@@ -198,7 +215,7 @@ if is_premium:
 
     st.markdown("---")
 
-    st.markdown("### Videos Exclusivos de Entrenamiento de Perro")
+    st.markdown("### 🐶 Videos Exclusivos de Entrenamiento de Perro")
     st.write("Accede a nuestros videos exclusivos de entrenamiento para tu perro.")
     video_urls = [
         "https://www.youtube.com/watch?v=video_id_1",  # Reemplazar con URLs reales de videos
@@ -212,7 +229,7 @@ if is_premium:
     st.markdown("---")
 
     # Sección para agregar eventos al historial clínico
-    st.markdown("### Historial Clínico y Calendario de Salud")
+    st.markdown("### 🐶 Historial Clínico y Calendario de Salud")
     st.write("Lleva un registro de la salud de tu perro, incluyendo vacunas, enfermedades, controles médicos, y más.")
 
     # Cargar historial clínico
@@ -241,107 +258,39 @@ if is_premium:
         else:
             st.error("Por favor, complete todos los campos.")
 
+    st.markdown("---")
+
+    st.markdown("### 🐶 Comunidad DOGGYS")
+    st.write("¡Únete a nuestra comunidad para compartir experiencias y consejos con otros dueños de perros!")
+
+    # Formulario para enviar testimonios
+    st.markdown("### Comparte tu Testimonio")
+    testimony = st.text_area("Escribe tu testimonio aquí...")
+
+    # Campo para cargar fotos de testimonios
+    uploaded_testimony_photos = st.file_uploader("Adjunta fotos (opcional)", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
+
+    if st.button("Enviar Testimonio"):
+        testimonies = load_testimonies()
+        new_testimony = {"text": testimony, "photos": uploaded_testimony_photos}
+        testimonies.append(new_testimony)
+        save_testimonies(testimonies)
+        st.success("¡Gracias por compartir tu testimonio!")
+
+    # Mostrar testimonios enviados
+    st.markdown("### Testimonios de la Comunidad")
+    testimonies = load_testimonies()
+    
+    for testimony in testimonies:
+        st.write(f"\"{testimony['text']}\"")
+        if testimony["photos"]:
+            for photo in testimony["photos"]:
+                st.image(photo, caption="Foto del testimonio", use_column_width=True)
+
 else:
-    st.write("Para acceder a las funcionalidades premium, por favor inicia sesión o regístrate.")
+    st.write("Para acceder a las funcionalidades premium, por favor inicia sesión.")
 
-import streamlit as st
-from datetime import datetime
-import json
-
-# Función para guardar publicaciones de la comunidad en el almacenamiento de sesión
-def save_community_posts(data):
-    st.session_state.community_posts = data
-
-# Función para cargar publicaciones de la comunidad desde el almacenamiento de sesión
-def load_community_posts():
-    if "community_posts" not in st.session_state:
-        st.session_state.community_posts = []
-    return st.session_state.community_posts
-
-# Estilos CSS personalizados
-st.markdown(
-    """
-    <style>
-    .community-box {
-        max-height: 600px;
-        overflow-y: auto;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background-color: #fafafa;
-        margin-bottom: 20px;
-    }
-    .community-post {
-        padding: 10px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        background-color: #d1e7dd;
-    }
-    .community-post img {
-        max-width: 100%;
-        border-radius: 10px;
-    }
-    .community-post .user {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-    .community-post .date {
-        color: #555;
-        font-size: 12px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown("# Comunidad")
-st.write("Comparte tus experiencias, haz preguntas, da consejos y sube fotos de tus perros.")
-
-# Verificar si el usuario es premium
-is_premium = st.session_state.get("is_premium", False)
-
-if is_premium:
-    # Cargar publicaciones de la comunidad
-    community_posts = load_community_posts()
-
-    # Mostrar publicaciones de la comunidad
-    st.markdown("<div class='community-box'>", unsafe_allow_html=True)
-    for post in community_posts:
-        st.markdown(
-            f"""
-            <div class='community-post'>
-                <div class='user'>{post['username']}</div>
-                <div class='date'>{post['date']}</div>
-                <div class='message'>{post['message']}</div>
-                {'<img src="' + post['image'] + '">' if post['image'] else ''}
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # Formulario para agregar nuevas publicaciones
-    st.markdown("## Nueva Publicación")
-    username = st.text_input("Nombre de usuario", key="community_username")
-    message = st.text_area("Mensaje", key="community_message")
-    uploaded_image = st.file_uploader("Subir imagen", type=["jpg", "jpeg", "png"], key="community_image")
-
-    if st.button("Publicar", key="community_publish"):
-        if username and message:
-            new_post = {
-                "username": username,
-                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "message": message,
-                "image": None
-            }
-            if uploaded_image:
-                new_post["image"] = f"data:image/jpeg;base64,{uploaded_image.read().decode('utf-8')}"
-            
-            community_posts.append(new_post)
-            save_community_posts(community_posts)
-            st.success("Publicación agregada exitosamente.")
-            st.experimental_rerun()
-        else:
-            st.error("Por favor, complete todos los campos.")
-else:
-    st.error("Para acceder a la comunidad, por favor inicia sesión o regístrate como usuario premium.")
+# Footer
+st.markdown("---")
+st.markdown("### 🐶 DOGGYS ")
+st.markdown("#### Contacto: info@doggys.com")

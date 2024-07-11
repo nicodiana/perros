@@ -1,21 +1,12 @@
 import streamlit as st
 
-
 # Streamlit configuration
-
-
-import streamlit as st
-
-
-
 st.set_page_config(
     page_title="DOGGYS",
     page_icon=":dog:",
     layout="wide",
     initial_sidebar_state="expanded",
-    
 )
-
 
 # Contenido de la sidebar
 with st.sidebar:
@@ -29,12 +20,11 @@ with st.sidebar:
     email = st.text_input("Email")
     phone = st.text_input("Teléfono")
 
-# Botón para enviar la información
+    # Botón para enviar la información
     if st.button("Enviar Información"):
         st.write("Información enviada:")
         st.write(f"Email: {email}")
         st.write(f"Teléfono: {phone}")
-  
 
     st.markdown("---")
 
@@ -82,20 +72,43 @@ st.markdown(
     }
     .logo-container {
         display: flex;
-        
         margin-bottom: 50px;
+    }
+     .stButton button {
+        background-color: #804000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .premium-btn {
+        background-color: #804000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        margin-top: 10px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 col1, col2, col3 = st.columns(3)
 
 with col2:
     st.image('loguito.png', caption=None, width=400, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     
 # App title and logo
-
 st.markdown('<h1 class="title">Bienvenido a tu Dog Breed Identifier</h1>', unsafe_allow_html=True)
 
 # "Sobre Nosotros" section
@@ -104,5 +117,6 @@ st.markdown('<div class="info-box"><div class="info-box-title"></div>DogBreeds D
 st.markdown('<div class="info-box"><div class="info-box-title">¿Cómo usar la App?</div>1. Sube una foto de tu perro.<br>2. Haz clic en el botón para identificar la raza.<br>3. Recibe información detallada y recomendaciones personalizadas.</div>', unsafe_allow_html=True)
 st.markdown('<div class="info-box"><div class="info-box-title">Beneficios de usar DOGGYS</div>- Conoce lo mejor para tu mascota.<br>- Ahorra tiempo y dinero, evitando acciones innecesarias.<br>- Sentite seguro: nuestra app utiliza un modelo de IA avanzado entrenado con miles de imágenes para garantizar precisión en la identificación.<br>- Complementa el cuidado de tu mascota junto con tu veterinario de confianza brindandole lo más adecuado para su bienestar.</div>', unsafe_allow_html=True)
 
-# Button to navigate to the second view
+# Buttons to navigate to the second view and premium users
 st.markdown('<div class="btn-box"><a href="/Identificador" target="_self"><button style="background-color:#804000;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:20px;">Comenzá Aquí</button></a></div>', unsafe_allow_html=True)
+st.markdown('<div class="btn-box"><a href="/Premium" target="_self"><button class="premium-btn">Usuarios Premium</button></a></div>', unsafe_allow_html=True)

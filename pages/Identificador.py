@@ -408,6 +408,17 @@ st.markdown(
         transition: background-color 0.3s ease;
         text-decoration: none;
     }
+      .stButton button {
+        background-color: #804000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
     .more-btn:hover {
         background-color: #824c1a;
     }
